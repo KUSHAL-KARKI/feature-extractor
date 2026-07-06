@@ -1,28 +1,12 @@
-const parseFile = require("./parser");
-const getFunctions = require("./traverse");
 const extractMetrics = require("./metrics");
+const getComplexityLevel = require("./labeler");
 
-function extract(file){
+function extract(functionPath) {
+  const metrics = extractMetrics(functionPath);
 
-    const ast = parseFile(file);
-
-    const functions = getFunctions(ast);
-
-    return functions.map(f=>{
-
-        return{
-
-            function_name:
-                f.node.id
-                    ? f.node.id.name
-                    : "anonymous",
-
-            ...extractMetrics(f)
-
-        };
-
-    });
-
+  return {
+    function_name: functionPath.node.id?.name || "anonymous",
+    ...metrics,
+    complexity_level: getComplexityLevel(metrics)
+  };
 }
-
-module.exports = extract;
