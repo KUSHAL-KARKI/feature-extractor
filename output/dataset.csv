@@ -1,0 +1,5 @@
+function_name,cyclomatic_complexity,max_nesting_depth,loc,parameter_count,branch_count,loop_count,return_statement_count,is_async,await_count,has_try_catch,external_call_count,callback_count,is_recursive,complexity_level
+isPalindrome,2,1,10,1,1,0,2,false,0,false,5,0,false,
+buildQuery,9,5,32,4,7,1,1,false,0,false,5,0,false,
+sumArray,2,1,7,1,0,1,1,false,0,false,0,0,false,
+calculateGrade,8,1,23,1,6,1,6,false,0,false,0,0,false,
